@@ -14,10 +14,10 @@ const LikeButton: React.FC<LikeButtonProps> = ({ isLiked, onLike }) => {
         transition: 'all 0.3s ease',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'scale(1.2)';  // ✨ Bigger on hover
+        e.currentTarget.style.transform = 'scale(1.2)'; 
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'scale(1)';    // ✨ Back to normal
+        e.currentTarget.style.transform = 'scale(1)'; 
       }}
       onMouseDown={(e) => {
         e.currentTarget.style.transform = 'scale(0.9)';
@@ -26,7 +26,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ isLiked, onLike }) => {
         e.currentTarget.style.transform = 'scale(1.3)';
         setTimeout(() => {
           if (e.currentTarget) {
-            e.currentTarget.style.transform = 'scale(1)';  // ✨ Back to normal after 200ms
+            e.currentTarget.style.transform = 'scale(1)';  
           }
         }, 200)
       }}

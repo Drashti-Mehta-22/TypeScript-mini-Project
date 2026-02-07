@@ -14,8 +14,8 @@ const [posts, setPosts] = useState<BlogPost[]>([
       categoryColor: 'blue',
       title: 'Getting Started with TypeScript',
       description: 'Learn the basics of TypeScript and how it helps build better React apps.',
-      readTime: '5 min read',  // ✨ NEW
-      isLiked: false  // ✨ NEW
+      readTime: '5 min read',
+      isLiked: false
     },
     {
       id: 2,
@@ -23,8 +23,8 @@ const [posts, setPosts] = useState<BlogPost[]>([
       categoryColor: 'green',
       title: 'Building Reusable Components',
       description: 'Create flexible components that work everywhere in your application.',
-      readTime: '7 min read',  // ✨ NEW
-      isLiked: false  // ✨ NEW
+      readTime: '7 min read',
+      isLiked: false
     },
     {
       id: 3,
@@ -32,8 +32,8 @@ const [posts, setPosts] = useState<BlogPost[]>([
       categoryColor: 'yellow',
       title: 'Modern CSS Techniques for better UI',
       description: 'Learn how to use Grid and Flexbox to create beautiful layouts.',
-      readTime: '6 min read',  // ✨ NEW
-      isLiked: false  // ✨ NEW
+      readTime: '6 min read',
+      isLiked: false
     },
     {
       id: 4,
@@ -41,8 +41,8 @@ const [posts, setPosts] = useState<BlogPost[]>([
       categoryColor: 'red',
       title: 'Understanding Async/Await',
       description: 'Master asynchronous JavaScript with simple examples and tips.',
-      readTime: '8 min read',  // ✨ NEW
-      isLiked: false  // ✨ NEW
+      readTime: '8 min read',
+      isLiked: false
     },
     {
       id: 5,
@@ -50,8 +50,8 @@ const [posts, setPosts] = useState<BlogPost[]>([
       categoryColor: 'green',
       title: 'Optimizing React Apps',
       description: 'Simple techniques to make your React applications faster.',
-      readTime: '10 min read',  // ✨ NEW
-      isLiked: false  // ✨ NEW
+      readTime: '10 min read',
+      isLiked: false
     },
     {
       id: 6,
@@ -59,12 +59,12 @@ const [posts, setPosts] = useState<BlogPost[]>([
       categoryColor: 'blue',
       title: 'Future of Web Development',
       description: 'Explore new trends and technologies shaping the web.',
-      readTime: '6 min read',  // ✨ NEW
-      isLiked: false  // ✨ NEW
+      readTime: '6 min read',
+      isLiked: false
     }
   ])
 
-  // ✨ NEW - Toggle like (true/false)
+  // Toggle like (true/false)
   const handleLike = (postId: number): void => {
     setPosts(posts.map(post => 
       post.id === postId ? { ...post, isLiked: !post.isLiked }: post
