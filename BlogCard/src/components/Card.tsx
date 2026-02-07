@@ -10,6 +10,8 @@ const Card: React.FC<CardProps> = ({ children }) => {
         padding: '20px',
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         margin: '15px',
+        transition: 'all 0.3s ease', 
+        cursor: 'pointer', 
       }}
     >
       {children}

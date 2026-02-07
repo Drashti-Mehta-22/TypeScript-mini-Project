@@ -30,7 +30,7 @@ const [posts, setPosts] = useState<BlogPost[]>([
       id: 3,
       category: 'CSS',
       categoryColor: 'yellow',
-      title: 'Modern CSS Techniques',
+      title: 'Modern CSS Techniques for better UI',
       description: 'Learn how to use Grid and Flexbox to create beautiful layouts.',
       readTime: '6 min read',  // ✨ NEW
       isLiked: false  // ✨ NEW
