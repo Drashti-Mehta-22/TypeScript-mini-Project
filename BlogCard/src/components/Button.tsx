@@ -6,9 +6,9 @@ const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
     <button
       onClick={onClick}
       style={{
-        padding: '10px 20px',
-        fontSize: '16px',
-        backgroundColor: '#007bff',
+        padding: '7px 14px',
+        fontSize: '14px',
+        backgroundColor: '#294ef6',
         color: 'white',
         border: 'none',
         borderRadius: '6px',

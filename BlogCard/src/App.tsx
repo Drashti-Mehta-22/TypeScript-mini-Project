@@ -1,10 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./components/Button";
 import Card from "./components/Card";
 import Badge from "./components/Badge";
+import type { BlogPost } from "./type-index";
+import LikeButton from "./components/LikeButton";
 
-const App: React.FC = () => {
-  
+const App: React.FC=() =>{
+
+const [posts, setPosts] = useState<BlogPost[]>([
+    {
+      id: 1,
+      category: 'React',
+      categoryColor: 'blue',
+      title: 'Getting Started with TypeScript',
+      description: 'Learn the basics of TypeScript and how it helps build better React apps.',
+      readTime: '5 min read',  // ✨ NEW
+      isLiked: false  // ✨ NEW
+    },
+    {
+      id: 2,
+      category: 'Design',
+      categoryColor: 'green',
+      title: 'Building Reusable Components',
+      description: 'Create flexible components that work everywhere in your application.',
+      readTime: '7 min read',  // ✨ NEW
+      isLiked: false  // ✨ NEW
+    },
+    {
+      id: 3,
+      category: 'CSS',
+      categoryColor: 'yellow',
+      title: 'Modern CSS Techniques',
+      description: 'Learn how to use Grid and Flexbox to create beautiful layouts.',
+      readTime: '6 min read',  // ✨ NEW
+      isLiked: false  // ✨ NEW
+    },
+    {
+      id: 4,
+      category: 'JavaScript',
+      categoryColor: 'red',
+      title: 'Understanding Async/Await',
+      description: 'Master asynchronous JavaScript with simple examples and tips.',
+      readTime: '8 min read',  // ✨ NEW
+      isLiked: false  // ✨ NEW
+    },
+    {
+      id: 5,
+      category: 'Performance',
+      categoryColor: 'green',
+      title: 'Optimizing React Apps',
+      description: 'Simple techniques to make your React applications faster.',
+      readTime: '10 min read',  // ✨ NEW
+      isLiked: false  // ✨ NEW
+    },
+    {
+      id: 6,
+      category: 'Web Dev',
+      categoryColor: 'blue',
+      title: 'Future of Web Development',
+      description: 'Explore new trends and technologies shaping the web.',
+      readTime: '6 min read',  // ✨ NEW
+      isLiked: false  // ✨ NEW
+    }
+  ])
+
+  // ✨ NEW - Toggle like (true/false)
+  const handleLike = (postId: number): void => {
+    setPosts(posts.map(post => 
+      post.id === postId ? { ...post, isLiked: !post.isLiked }: post
+    ));
+  };
+
   const handleReadMore = (): void => {
     alert('Read more clicked!');
   };
@@ -16,7 +82,7 @@ const App: React.FC = () => {
       padding: '40px 20px'
     }}>
       
-      {/* Header */}
+    
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
         <Badge text="My Blog" color="blue" />
         <h1 style={{ 
@@ -28,7 +94,7 @@ const App: React.FC = () => {
         </h1>
       </div>
 
-      {/* Blog Posts with 6 cards */}
+      {/* Blog Posts */}
       <div style={{ 
         maxWidth: '1200px', 
         margin: '0 auto',
@@ -37,89 +103,37 @@ const App: React.FC = () => {
         justifyContent: 'center'
       }}>
 
-        {/* Card 1 */}
-        <div style={{ width: '350px' }}>
-          <Card>
-            <Badge text="React" color="blue" />
-            <h2 style={{ fontSize: '22px', margin: '15px 0 10px 0' }}>
-              Getting Started with TypeScript
-            </h2>
-            <p style={{ color: '#666', marginBottom: '15px' }}>
-              Learn the basics of TypeScript and how it helps build better React apps.
-            </p>
-            <Button text="Read More" onClick={handleReadMore} />
-          </Card>
-        </div>
-
-        {/* Card 2 */}
-        <div style={{ width: '350px' }}>
-          <Card>
-            <Badge text="Design" color="green" />
-            <h2 style={{ fontSize: '22px', margin: '15px 0 10px 0' }}>
-              Building Reusable Components
-            </h2>
-            <p style={{ color: '#666', marginBottom: '15px' }}>
-              Create flexible components that work everywhere in your application.
-            </p>
-            <Button text="Read More" onClick={handleReadMore} />
-          </Card>
-        </div>
-
-        {/* Card 3 */}
-        <div style={{ width: '350px' }}>
-          <Card>
-            <Badge text="CSS" color="yellow" />
-            <h2 style={{ fontSize: '22px', margin: '15px 0 10px 0' }}>
-              Modern CSS Techniques
-            </h2>
-            <p style={{ color: '#666', marginBottom: '15px' }}>
-              Learn how to use Grid and Flexbox to create beautiful layouts.
-            </p>
-            <Button text="Read More" onClick={handleReadMore} />
-          </Card>
-        </div>
-
-        {/* Card 4 */}
-        <div style={{ width: '350px' }}>
-          <Card>
-            <Badge text="JavaScript" color="red" />
-            <h2 style={{ fontSize: '22px', margin: '15px 0 10px 0' }}>
-              Understanding Async/Await
-            </h2>
-            <p style={{ color: '#666', marginBottom: '15px' }}>
-              Master asynchronous JavaScript with simple examples and tips.
-            </p>
-            <Button text="Read More" onClick={handleReadMore} />
-          </Card>
-        </div>
-
-        {/* Card 5 */}
-        <div style={{ width: '350px' }}>
-          <Card>
-            <Badge text="Performance" color="green" />
-            <h2 style={{ fontSize: '22px', margin: '15px 0 10px 0' }}>
-              Optimizing React Apps
-            </h2>
-            <p style={{ color: '#666', marginBottom: '15px' }}>
-              Simple techniques to make your React applications faster.
-            </p>
-            <Button text="Read More" onClick={handleReadMore} />
-          </Card>
-        </div>
-
-        {/* Card 6 */}
-        <div style={{ width: '350px' }}>
-          <Card>
-            <Badge text="Web Dev" color="blue" />
-            <h2 style={{ fontSize: '22px', margin: '15px 0 10px 0' }}>
-              Future of Web Development
-            </h2>
-            <p style={{ color: '#666', marginBottom: '15px' }}>
-              Explore new trends and technologies shaping the web.
-            </p>
-            <Button text="Read More" onClick={handleReadMore} />
-          </Card>
-        </div>
+        {posts.map((post) => (
+          <div key={post.id} style={{ width: '350px', display: 'flex' }}>
+            <Card>
+              <div style={{ marginBottom: '10px' }}>
+                <Badge text={post.category} color={post.categoryColor} />
+                {/* <Badge text={post.readTime} color="gray" /> */}
+                <span style={{marginLeft: '7px', color: 'gray'}}>{post.readTime}</span>
+              </div>
+              
+              <h2 style={{ fontSize: '22px', margin: '15px 0 10px 0' }}>
+                {post.title}
+              </h2>
+              <p style={{ color: '#666', marginBottom: '15px' }}>
+                {post.description}
+              </p>
+              
+              {/*Thumbs up + Read More button */}
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center',
+                justifyContent: 'space-between'
+              }}>
+                <LikeButton 
+                  isLiked={post.isLiked} 
+                  onLike={() => handleLike(post.id)} 
+                />
+                <Button text="Read More" onClick={handleReadMore} />
+              </div>
+            </Card>
+          </div>
+        ))}
 
       </div>
 
